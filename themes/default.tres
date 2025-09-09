@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://540ppc83iju1"]
+
+[ext_resource type="FontFile" uid="uid://j03i0u76g43n" path="res://fonts/visitor.ttf" id="1_2g1ym"]
+
+[resource]
+default_font = ExtResource("1_2g1ym")
+default_font_size = 28
+Button/fonts/font = ExtResource("1_2g1ym")
+Label/font_sizes/font_size = 28
+Label/fonts/font = ExtResource("1_2g1ym")
