@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://doypee7uhlhr3"]
+
+[ext_resource type="Script" uid="uid://oa8pqunlfmos" path="res://scripts/LevelManager.cs" id="1_qcjiq"]
+
+[node name="Levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qcjiq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level1" type="Button" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+text = "1"
