@@ -17,3 +17,7 @@ mono_crash.*.json
 
 # Editor-specific ignores
 .idea/
+
+# Builds
+build/
+out/
