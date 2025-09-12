@@ -1,3 +1,43 @@
-[gd_scene format=3 uid="uid://cxocosfu8bfjm"]
+[gd_scene load_steps=5 format=3 uid="uid://cxocosfu8bfjm"]
+
+[ext_resource type="SpriteFrames" uid="uid://dqqug4vwgijej" path="res://animations/player.tres" id="1_1pwbc"]
+[ext_resource type="Script" uid="uid://bm480xonf41r7" path="res://scripts/Player.cs" id="1_j08sa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4si1"]
+size = Vector2(9, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j08sa"]
+size = Vector2(317, 119)
 
 [node name="Level1" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("camera", "animatedSprite")]
+position = Vector2(105, 57)
+scale = Vector2(2, 2)
+script = ExtResource("1_j08sa")
+camera = NodePath("../Camera2D")
+animatedSprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = ExtResource("1_1pwbc")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-0.5, 7)
+shape = SubResource("RectangleShape2D_x4si1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(79, 243)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(0.411319, 0.185612, 0.0636154, 1)
+polygon = PackedVector2Array(-65.9996, -85, 250, -86, 251, 33, -65.9996, 30)
+uv = PackedVector2Array(-65.9996, -30, 36.0004, -33, 39.0004, 30, -65.9996, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(92.5, -25.5)
+shape = SubResource("RectangleShape2D_j08sa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(110, 57)
+position_smoothing_enabled = true
