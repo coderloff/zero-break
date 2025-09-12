@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Zero Break"
-run/main_scene="uid://cxocosfu8bfjm"
+run/main_scene="uid://so3bboldetm7"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
+boot_splash/bg_color=Color(0.0156863, 0.054902, 0.0862745, 1)
 config/icon="res://icon.svg"
 
 [dotnet]

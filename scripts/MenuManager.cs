@@ -4,14 +4,23 @@ namespace ZeroBreak
 {
     public partial class MenuManager : Control
     {
-        public void _on_campaign_pressed()
+        [Export] private Button campaignButton;
+        [Export] private Button optionsButton;
+        [Export] private Button exitButton;
+        [Export] private PackedScene levelScene;
+
+        public override void _Ready()
         {
-            LoadScene("res://scenes/Levels.tscn");
+            Input.SetMouseMode(Input.MouseModeEnum.Hidden);
+            
+            campaignButton.GrabFocus();
+            campaignButton.Pressed += () => LoadScene(levelScene);
+            exitButton.Pressed += () => GetTree().Quit();
         }
         
-        private void LoadScene(string name)
+        private void LoadScene(PackedScene scene)
         {
-            GetTree().ChangeSceneToFile(name);
+            GetTree().ChangeSceneToPacked(scene);
         }
     }
 }
