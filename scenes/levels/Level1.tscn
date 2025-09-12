@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxocosfu8bfjm"]
 
 [ext_resource type="SpriteFrames" uid="uid://dqqug4vwgijej" path="res://animations/player.tres" id="1_1pwbc"]
-[ext_resource type="Script" uid="uid://bm480xonf41r7" path="res://scripts/Player.cs" id="1_j08sa"]
+[ext_resource type="Script" uid="uid://ct5sl7gyhk3u8" path="res://scripts/player.gd" id="1_j08sa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4si1"]
 size = Vector2(9, 18)
@@ -11,12 +11,12 @@ size = Vector2(317, 119)
 
 [node name="Level1" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("camera", "animatedSprite")]
+[node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("camera", "animated_sprite")]
 position = Vector2(105, 57)
 scale = Vector2(2, 2)
 script = ExtResource("1_j08sa")
 camera = NodePath("../Camera2D")
-animatedSprite = NodePath("AnimatedSprite2D")
+animated_sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = ExtResource("1_1pwbc")

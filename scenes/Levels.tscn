@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://doypee7uhlhr3"]
 
-[ext_resource type="Script" uid="uid://oa8pqunlfmos" path="res://scripts/LevelManager.cs" id="1_qcjiq"]
+[ext_resource type="Script" uid="uid://bnu3cnmcmcwf8" path="res://scripts/level.gd" id="1_qcjiq"]
 
-[node name="Levels" type="Control"]
+[node name="Levels" type="Control" node_paths=PackedStringArray("levelButtons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qcjiq")
+levelButtons = [NodePath("CanvasLayer/GridContainer/Level1")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

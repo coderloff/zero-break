@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://j03i0u76g43n" path="res://fonts/visitor.ttf" id="1_uubjt"]
 [ext_resource type="Theme" uid="uid://540ppc83iju1" path="res://themes/default.tres" id="2_5yleq"]
-[ext_resource type="Script" uid="uid://buk1t02crfolu" path="res://scripts/MenuManager.cs" id="2_11y2r"]
+[ext_resource type="Script" uid="uid://ep5awjhns8e" path="res://scripts/menu.gd" id="2_o0tnf"]
 [ext_resource type="PackedScene" uid="uid://doypee7uhlhr3" path="res://scenes/Levels.tscn" id="3_jmdev"]
 [ext_resource type="StyleBox" uid="uid://bib80v0cvjpnw" path="res://themes/button-hover.tres" id="5_jmdev"]
 
@@ -22,7 +22,7 @@ bg_color = Color(0, 0, 0, 0)
 expand_margin_left = 8.0
 expand_margin_right = 16.0
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("campaignButton", "optionsButton", "exitButton")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("campaign_button", "options_button", "exit_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,11 +30,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_5yleq")
-script = ExtResource("2_11y2r")
-campaignButton = NodePath("CanvasLayer/VBoxContainer/Campaign")
-optionsButton = NodePath("CanvasLayer/VBoxContainer/Options")
-exitButton = NodePath("CanvasLayer/VBoxContainer/Exit")
-levelScene = ExtResource("3_jmdev")
+script = ExtResource("2_o0tnf")
+campaign_button = NodePath("CanvasLayer/VBoxContainer/Campaign")
+options_button = NodePath("CanvasLayer/VBoxContainer/Options")
+exit_button = NodePath("CanvasLayer/VBoxContainer/Exit")
+level_scene = ExtResource("3_jmdev")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
