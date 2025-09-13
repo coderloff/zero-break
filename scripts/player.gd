@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var camera: Camera2D
 @export var animated_sprite: AnimatedSprite2D
 
+var _start_scale: Vector2 = Vector2.ZERO
 var _jump_counter: int = 0
 var _is_falling: bool = false
 var _is_jumping: bool = false
@@ -15,6 +16,9 @@ var _is_double_jumping: bool = false
 var _is_jump_cancelled: bool = false
 var _is_idling: bool = false
 var _is_running: bool = false
+
+func _ready() -> void:
+	_start_scale = scale
 
 func _physics_process(delta: float) -> void:
 	process_input(delta)
@@ -50,10 +54,10 @@ func process_input(delta: float) -> void:
 		_jump_counter = 0
 
 	# Sprite direction
-	if not is_zero_approx(velocity.x):
-		animated_sprite.flip_h = velocity.x < 0
-	else:
-		animated_sprite.flip_h = get_global_mouse_position().x < position.x 
+	var scale_x: float = -_start_scale.x if get_global_mouse_position().x < position.x else _start_scale.x
+	scale = Vector2(scale_x, absf(_start_scale.y))
+		
+	rotation = 0
 
 	move_and_slide()
 

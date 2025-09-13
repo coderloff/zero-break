@@ -46,4 +46,7 @@ shape = SubResource("RectangleShape2D_j08sa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(110, 57)
+zoom = Vector2(1.4, 1.4)
 position_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
