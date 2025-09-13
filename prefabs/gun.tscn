@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmfcuofea2kgd"]
+
+[ext_resource type="Script" uid="uid://dq0ku8f384m61" path="res://scripts/gun.gd" id="1_5mcpd"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ju3dk"]
+load_path = "res://.godot/imported/gun.png-09dca8ed166f892f413f3bc36a1cb0af.ctex"
+
+[node name="Gun" type="Node2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_5mcpd")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(0.8, 0.8)
+texture = SubResource("CompressedTexture2D_ju3dk")

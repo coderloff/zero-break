@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxocosfu8bfjm"]
+[gd_scene load_steps=7 format=3 uid="uid://cxocosfu8bfjm"]
 
 [ext_resource type="SpriteFrames" uid="uid://dqqug4vwgijej" path="res://animations/player.tres" id="1_1pwbc"]
 [ext_resource type="Script" uid="uid://ct5sl7gyhk3u8" path="res://scripts/player.gd" id="1_j08sa"]
+[ext_resource type="PackedScene" uid="uid://cmfcuofea2kgd" path="res://prefabs/gun.tscn" id="3_x4si1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4si1"]
 size = Vector2(9, 18)
 
+[sub_resource type="QuadMesh" id="QuadMesh_fh0io"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j08sa"]
-size = Vector2(317, 119)
+size = Vector2(320, 120)
 
 [node name="Level1" type="Node2D"]
 
@@ -26,16 +29,19 @@ animation = &"idle"
 position = Vector2(-0.5, 7)
 shape = SubResource("RectangleShape2D_x4si1")
 
+[node name="Gun" parent="Player" instance=ExtResource("3_x4si1")]
+position = Vector2(5, 8)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(79, 243)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-color = Color(0.411319, 0.185612, 0.0636154, 1)
-polygon = PackedVector2Array(-65.9996, -85, 250, -86, 251, 33, -65.9996, 30)
-uv = PackedVector2Array(-65.9996, -30, 36.0004, -33, 39.0004, 30, -65.9996, 30)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+position = Vector2(100, 0)
+scale = Vector2(320, 120)
+mesh = SubResource("QuadMesh_fh0io")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(92.5, -25.5)
+position = Vector2(100, 0)
 shape = SubResource("RectangleShape2D_j08sa")
 
 [node name="Camera2D" type="Camera2D" parent="."]

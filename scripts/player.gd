@@ -22,13 +22,14 @@ func _physics_process(delta: float) -> void:
 
 func process_input(delta: float) -> void:
 	# Horizontal movement
-	self.velocity.x = Input.get_axis("move_left", "move_right") * move_speed
+	var _input_x: float = Input.get_axis("move_left", "move_right");
+	velocity.x = _input_x * move_speed
 
 	# Apply gravity
-	self.velocity.y += gravity * delta
+	velocity.y += gravity * delta
 
 	# State checks
-	_is_falling = self.velocity.y > 0.0 and not is_on_floor()
+	_is_falling = velocity.y > 0.0 and not is_on_floor()
 	_is_jumping = Input.is_action_just_pressed("jump") and is_on_floor()
 	_is_double_jumping = Input.is_action_just_pressed("jump") and _is_falling
 	_is_jump_cancelled = Input.is_action_just_released("jump") and velocity.y < 0.0
@@ -38,19 +39,21 @@ func process_input(delta: float) -> void:
 	# Jumping logic
 	if _is_jumping:
 		_jump_counter += 1
-		self.velocity.y = -jump_velocity
+		velocity.y = -jump_velocity
 	elif _is_double_jumping:
 		_jump_counter += 1
 		if _jump_counter <= max_jumps:
-			self.velocity.y = -double_jump_velocity
+			velocity.y = -double_jump_velocity
 	elif _is_jump_cancelled:
-		self.velocity.y = 0.0
+		velocity.y = 0.0
 	elif _is_idling or _is_running:
 		_jump_counter = 0
 
 	# Sprite direction
-	if not is_equal_approx(velocity.x, 0.0):
-		animated_sprite.flip_h = self.velocity.x < 0
+	if not is_zero_approx(velocity.x):
+		animated_sprite.flip_h = velocity.x < 0
+	else:
+		animated_sprite.flip_h = get_global_mouse_position().x < position.x 
 
 	move_and_slide()
 
