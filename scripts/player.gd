@@ -56,7 +56,6 @@ func process_input(delta: float) -> void:
 	# Sprite direction
 	var scale_x: float = -_start_scale.x if get_global_mouse_position().x < position.x else _start_scale.x
 	scale = Vector2(scale_x, absf(_start_scale.y))
-		
 	rotation = 0
 
 	move_and_slide()
@@ -66,3 +65,7 @@ func process_input(delta: float) -> void:
 func apply_animations() -> void:
 	if _is_idling:
 		animated_sprite.play("idle")
+	if _is_running:
+		animated_sprite.play("run")
+	if _is_jumping:
+		animated_sprite.play("jump")
