@@ -1,13 +1,15 @@
 extends Control
 
-@export var levelButtons: Array[Button]
+@export var level_buttons: Array[Button]
 
 func _ready() -> void:
-	for button in levelButtons:
+	level_buttons[0].grab_focus()
+	
+	for button in level_buttons:
 		button.pressed.connect(func(): on_level_button_pressed(button.name))
 
 func on_level_button_pressed(button_name: String) -> void:
-	var level_path = "res://scenes/levels/%s.tscn" % button_name
+	var level_path: String = "res://scenes/levels/%s.tscn" % button_name
 	var level_scene: PackedScene = ResourceLoader.load(level_path)
 	if level_scene:
 		get_tree().change_scene_to_packed(level_scene)

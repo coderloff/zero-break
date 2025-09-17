@@ -1,26 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://doypee7uhlhr3"]
+[gd_scene load_steps=6 format=3 uid="uid://doypee7uhlhr3"]
 
 [ext_resource type="Script" uid="uid://bnu3cnmcmcwf8" path="res://scripts/level.gd" id="1_qcjiq"]
+[ext_resource type="Theme" uid="uid://540ppc83iju1" path="res://themes/default.tres" id="2_u8gjl"]
+[ext_resource type="Theme" uid="uid://kb5812pbn4bx" path="res://themes/button.tres" id="3_m25o6"]
+[ext_resource type="StyleBox" uid="uid://yqujaq38yyh2" path="res://themes/frame-hover.tres" id="4_5ch6c"]
 
-[node name="Levels" type="Control" node_paths=PackedStringArray("levelButtons")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6mwt"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0)
+
+[node name="Levels" type="Control" node_paths=PackedStringArray("level_buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_qcjiq")
-levelButtons = [NodePath("CanvasLayer/GridContainer/Level1")]
+level_buttons = [NodePath("CanvasLayer/GridContainer/Level1")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.5
+offset_top = 64.0
+offset_right = 182.5
+offset_bottom = 152.0
+grow_horizontal = 2
+theme = ExtResource("2_u8gjl")
+theme_override_font_sizes/font_size = 96
+text = "Levels:"
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = 210.0
+offset_right = -128.0
+offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Level1" type="Button" parent="CanvasLayer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+theme = ExtResource("3_m25o6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c6mwt")
+theme_override_styles/pressed = ExtResource("4_5ch6c")
+theme_override_styles/hover = ExtResource("4_5ch6c")
+theme_override_styles/focus = ExtResource("4_5ch6c")
 text = "1"
