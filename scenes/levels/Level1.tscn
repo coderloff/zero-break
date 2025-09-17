@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxocosfu8bfjm"]
+[gd_scene load_steps=9 format=3 uid="uid://cxocosfu8bfjm"]
 
 [ext_resource type="SpriteFrames" uid="uid://dqqug4vwgijej" path="res://animations/player.tres" id="1_1pwbc"]
+[ext_resource type="Script" uid="uid://5pp2oq83thry" path="res://scripts/game.gd" id="1_68ib6"]
 [ext_resource type="Script" uid="uid://ct5sl7gyhk3u8" path="res://scripts/player.gd" id="1_j08sa"]
+[ext_resource type="Texture2D" uid="uid://br3i12g383irg" path="res://sprites/ui/crosshair.png" id="2_76cw8"]
 [ext_resource type="PackedScene" uid="uid://cmfcuofea2kgd" path="res://prefabs/gun.tscn" id="3_x4si1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4si1"]
@@ -13,6 +15,8 @@ size = Vector2(9, 18)
 size = Vector2(320, 120)
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_68ib6")
+cursorSprite = ExtResource("2_76cw8")
 
 [node name="Player" type="CharacterBody2D" parent="." node_paths=PackedStringArray("camera", "animated_sprite")]
 position = Vector2(105, 57)
